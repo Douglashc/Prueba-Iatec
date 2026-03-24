@@ -1,0 +1,29 @@
+# Binarios y carpetas de compilación
+**/bin/
+**/obj/
+.vs/
+.vscode/
+*.user
+*.db
+
+# Archivos de usuario de Visual Studio y VS Code
+.vs/
+.vscode/
+*.user
+*.userosscache
+*.sln.docstates
+*.suo
+*.userprefs
+
+# Dependencias 
+**/node_modules/
+**/dist/
+.angular/
+npm-debug.log*
+
+# --- [Sistema y Otros] ---
+.DS_Store
+Thumbs.db
+
+.env
+.env.*
