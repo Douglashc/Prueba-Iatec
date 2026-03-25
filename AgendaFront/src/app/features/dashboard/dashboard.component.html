@@ -107,10 +107,12 @@
                     </span>
                     <h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest">Eventos Expirados</h3>
                 </div>
-                <app-old-events *ngFor="let oldEvent of oldEvents"
-                    [oldEvent]="oldEvent"
-                    (onConfirmDelete)="confirmDelete($event)"
-                ></app-old-events>
+                <div class="grid grid-cols-1 gap-4">
+                    <app-old-events *ngFor="let oldEvent of oldEvents"
+                        [oldEvent]="oldEvent"
+                        (onConfirmDelete)="confirmDelete($event)"
+                    ></app-old-events>
+                </div>
             </section>
         </main>
 
