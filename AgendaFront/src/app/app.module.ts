@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './features/login/login.component';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
-import { EventsComponent } from './features/events/events.component';
+import { UpcomingEventsComponent } from './features/upcoming-events/upcoming-events.component';
 
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 import { EventFormComponent } from './shared/components/event-form/event-form.component';
@@ -19,7 +19,7 @@ import { RegisterComponent } from './features/register/register.component';
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    EventsComponent,
+    UpcomingEventsComponent,
     EventFormComponent,
     InviteEventFormComponent,
     RegisterComponent

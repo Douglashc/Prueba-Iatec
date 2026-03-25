@@ -49,6 +49,8 @@ export class DashboardComponent implements OnInit {
   }
 
   openEditModal(event: any) {
+    console.log('HOLA');
+    console.log("EVENT: ", event)
     this.selectedEvent = event;
     this.showModal = true;
   }
