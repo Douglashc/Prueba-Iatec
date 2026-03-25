@@ -14,6 +14,7 @@ import { EventFormComponent } from './shared/components/event-form/event-form.co
 import { InviteEventFormComponent } from './shared/components/invite-event-form/invite-event-form.component';
 import { RegisterComponent } from './features/register/register.component';
 import { OldEventsComponent } from './features/old-events/old-events.component';
+import { CurrentEventsComponent } from './features/current-events/current-events.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { OldEventsComponent } from './features/old-events/old-events.component';
     EventFormComponent,
     InviteEventFormComponent,
     RegisterComponent,
-    OldEventsComponent
+    OldEventsComponent,
+    CurrentEventsComponent
   ],
   imports: [
     BrowserModule,
