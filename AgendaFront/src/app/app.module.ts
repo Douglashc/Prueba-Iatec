@@ -13,6 +13,7 @@ import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 import { EventFormComponent } from './shared/components/event-form/event-form.component';
 import { InviteEventFormComponent } from './shared/components/invite-event-form/invite-event-form.component';
 import { RegisterComponent } from './features/register/register.component';
+import { OldEventsComponent } from './features/old-events/old-events.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { RegisterComponent } from './features/register/register.component';
     UpcomingEventsComponent,
     EventFormComponent,
     InviteEventFormComponent,
-    RegisterComponent
+    RegisterComponent,
+    OldEventsComponent
   ],
   imports: [
     BrowserModule,

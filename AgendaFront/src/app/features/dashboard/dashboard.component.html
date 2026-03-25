@@ -134,41 +134,17 @@
             <!-- END UPCOMING EVENTS -->
 
             <section *ngIf="oldEvents.length > 0" class="space-y-4">
-                <div class="flex items-center gap-2">
+                <div class="flex items-center gap-2 mb-4">
                     <span class="relative flex h-3 w-3">
                         <span class="absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
                         <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
                     </span>
                     <h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest">Eventos Expirados</h3>
                 </div>
-                <div *ngFor="let ev of oldEvents"
-                    class="bg-white border-l-4 border-red-500 p-4 rounded-xl shadow-sm flex justify-between items-center group transition-all hover:shadow-md">
-
-                    <div class="flex-1">
-                        <div class="flex items-center gap-2">
-                            <h4 class="font-bold text-slate-800">{{ ev.name }}</h4>
-                            <span
-                                class="text-[9px] bg-red-100 text-red-700 px-1.5 py-0.5 rounded font-black uppercase tracking-tighter">
-                                Pasado
-                            </span>
-                        </div>
-                        <p class="text-xs text-slate-500 mt-0.5">
-                            {{ ev.location }} • Finalizado {{ ev.endDate | date:'medium' }}
-                        </p>
-                    </div>
-
-                    <div
-                        class="flex items-center gap-1 ml-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                        <button (click)="confirmDelete(ev.id)"
-                            class="p-2 text-red-500 hover:bg-red-50 rounded-lg transition-colors" title="Eliminar">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
-                                </path>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
+                <app-old-events *ngFor="let oldEvent of oldEvents"
+                    [oldEvent]="oldEvent"
+                    (onConfirmDelete)="confirmDelete($event)"
+                ></app-old-events>
             </section>
         </main>
 
