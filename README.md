@@ -42,3 +42,4 @@ Antes de iniciar el backend, debes crear el contenedor para la base de datos:
 1. Entra a la carpeta del Frontend: cd AgendaFront
 2. Ejecuta el siguiente comando para descargar las dependencias: npm install
 3. Inicia el proyecto: ng serve
+4. Usuarios con datos de prueba: username: admin | password: admin123, username: juan | password: juan123  
