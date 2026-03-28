@@ -7,6 +7,10 @@
                 class="text-[9px] bg-green-100 text-green-700 px-1.5 py-0.5 rounded font-black uppercase tracking-tighter">
                 En curso
             </span>
+            <span
+                class="text-[9px] bg-gray-100 text-gray-700 px-1.5 py-0.5 rounded font-black uppercase tracking-tighter">
+                {{ currentEvent.status ? "Habilitado" : "Desabilitado" }}
+            </span>
         </div>
         <p class="text-xs text-slate-500 mt-0.5">
             {{ currentEvent.location }} • Finaliza {{ currentEvent.endDate | date:'medium' }}

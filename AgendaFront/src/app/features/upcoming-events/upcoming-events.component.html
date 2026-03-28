@@ -2,10 +2,15 @@
     class="bg-white border border-slate-200 p-5 rounded-2xl hover:shadow-xl hover:border-indigo-300 transition-all group flex flex-col justify-between h-full">
     <div>
         <div class="flex justify-between items-start mb-3">
-            <span [class]="event.type === 1 ? 'bg-amber-100 text-amber-700' : 'bg-blue-100 text-blue-700'"
-                class="text-[10px] uppercase font-black px-2 py-1 rounded-md">
-                {{ event.type === 1 ? 'Exclusivo' : 'Compartido' }}
-            </span>
+            <div>
+                <span [class]="event.type === 1 ? 'bg-amber-100 text-amber-700' : 'bg-blue-100 text-blue-700'"
+                    class="text-[10px] uppercase font-black px-2 py-1 rounded-md">
+                    {{ event.type === 1 ? 'Exclusivo' : 'Compartido' }}
+                </span>
+                <span class="ml-2 bg-gray-100 text-gray-700 text-[10px] uppercase font-black px-2 py-1 rounded-md">
+                    {{ event.status ? 'Habilitado' : 'Desabilitado' }}
+                </span>
+            </div>
             <span class="text-xs font-bold text-indigo-500">{{ event.startDate | date:'MMM d' }}</span>
         </div>
 
