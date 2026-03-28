@@ -11,6 +11,7 @@ export class UpcomingEventsComponent {
   @Output() onEdit = new EventEmitter<any>();
   @Output() onDelete = new EventEmitter<number>();
   @Output() onInvite = new EventEmitter<number>();
+  @Output() onChangeStatus = new EventEmitter<number>();
 
   getAvatarColor(name: string): string {
     const colors = ['bg-indigo-500', 'bg-emerald-500', 'bg-amber-500', 'bg-rose-500', 'bg-sky-500'];

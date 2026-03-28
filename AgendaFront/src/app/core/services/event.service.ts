@@ -27,6 +27,11 @@ export class EventService {
         return this.http.put(`${this.API_URL}/Events/${id}`, eventData);
     }
 
+    changeEventStatus(id: number) : Observable<any>
+    {
+        return this.http.put<any>(`${this.API_URL}/Events/${id}/toggle_status`, {});
+    }
+
     deleteEvent(id: number): Observable<any> {
         return this.http.delete(`${this.API_URL}/Events/${id}`);
     }

@@ -60,6 +60,16 @@ export class DashboardComponent implements OnInit {
     this.selectedEvent = null; 
   }
 
+  changeEventStatus(id: number)
+  {
+    if(!id) return;
+
+    if(confirm('Cambiar el estado del evento?'))
+    {
+      this.eventService.changeEventStatus(id).subscribe(() => this.refreshData());
+    }
+  }
+
   confirmDelete(id: number) {
     if (confirm('¿Estás seguro de eliminar este evento?')) {
       this.eventService.deleteEvent(id).subscribe(() => this.refreshData());

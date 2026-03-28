@@ -73,6 +73,7 @@
                         [currentEvent]="currentEvent"
                         (onOpenEditModal)="openEditModal($event)"
                         (onConfirmDelete)="confirmDelete($event)"
+                        (onChangeStatus)="changeEventStatus($event)"
                     ></app-current-events>
                 </div>
             </section>
@@ -85,7 +86,9 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
                     <app-upcoming-events *ngFor="let ev of upcomingEvents" [event]="ev" (onEdit)="openEditModal($event)"
                         (onDelete)="confirmDelete($event)"
-                        (onInvite)="selectedEventId = $event; showInviteModal = true">
+                        (onInvite)="selectedEventId = $event; showInviteModal = true"
+                        (onChangeStatus)="changeEventStatus($event)"
+                        >
                     </app-upcoming-events>
                 </div>
 
@@ -94,7 +97,9 @@
                     <p class="text-sm font-medium">No hay eventos próximos programados</p>
                 </div>
 
-                <app-invite-event-form [isVisible]="showInviteModal" [eventId]="selectedEventId"
+                <app-invite-event-form 
+                    [isVisible]="showInviteModal" 
+                    [eventId]="selectedEventId"
                     (onClose)="showInviteModal = false">
                 </app-invite-event-form>
             </section>

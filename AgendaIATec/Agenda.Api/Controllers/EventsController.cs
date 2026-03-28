@@ -91,11 +91,12 @@ public class EventsController : ControllerBase
         return Ok(new { message = accept ? "Evento aceptado" : "Invitación rechazada" });
     }
 
-    [HttpPost("{id}/toggle_status")]
-    public async Task<IActionResult> changeStatus(int idEvent)
+    [HttpPut("{id}/toggle_status")]
+    public async Task<IActionResult> changeStatus(int id)
     {
+        Console.WriteLine("EVENTO: ", id);
         var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value!);
-        var isChangeStatus = await _eventService.changeEventStatus(idEvent, userId);
+        var isChangeStatus = await _eventService.changeEventStatus(id, userId);
 
         if(!isChangeStatus.success) return BadRequest(isChangeStatus.message); 
 

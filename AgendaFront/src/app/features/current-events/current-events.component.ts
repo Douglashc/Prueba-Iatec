@@ -10,4 +10,5 @@ export class CurrentEventsComponent {
   @Input() currentEvent: any;
   @Output() onOpenEditModal = new EventEmitter<any>();
   @Output() onConfirmDelete = new EventEmitter<number>();
+  @Output() onChangeStatus = new EventEmitter<number>();
 }

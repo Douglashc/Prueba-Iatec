@@ -100,6 +100,6 @@ public class EventService : IEventService
 
         await this._eventRepository.UpdateAsync(existEvent);        
 
-        return (false, "Se actualizo el estado del evento.");
+        return (true, "Se actualizo el estado del evento.");
     }
 }
