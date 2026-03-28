@@ -24,6 +24,7 @@ export class EventFormComponent
 
   @Input() set selectedEventEdit(value: any) 
   {
+    console.log(value);
     this._selectedEvent = value;
     if (value) {
       this.isEditMode = true;
@@ -34,6 +35,7 @@ export class EventFormComponent
         endDate: value.endDate ? value.endDate.substring(0, 16) : '',
         location: value.location,
         type: value.type,
+        status: value.status
       });
     } else {
       this.isEditMode = false;
@@ -50,6 +52,7 @@ export class EventFormComponent
       endDate: ['', Validators.required],
       location: ['', Validators.required],
       type: [0, Validators.required],
+      status: [true, Validators.required],
     });
   }
 

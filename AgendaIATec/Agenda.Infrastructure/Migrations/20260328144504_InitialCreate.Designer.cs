@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Agenda.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260324185246_InitialCreate")]
+    [Migration("20260328144504_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -59,6 +59,9 @@ namespace Agenda.Infrastructure.Migrations
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<bool>("Status")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<int>("Type")
                         .HasColumnType("int");
 
@@ -77,11 +80,12 @@ namespace Agenda.Infrastructure.Migrations
                             Id = 1,
                             CreatorId = 1,
                             Description = "Revisión del sprint actual",
-                            EndDate = new DateTime(2026, 3, 24, 16, 52, 45, 565, DateTimeKind.Local).AddTicks(8034),
+                            EndDate = new DateTime(2026, 3, 28, 12, 45, 3, 904, DateTimeKind.Local).AddTicks(5249),
                             Location = "Oficina",
                             Name = "Sprint Review",
                             ParticipantIds = "[]",
-                            StartDate = new DateTime(2026, 3, 24, 12, 52, 45, 565, DateTimeKind.Local).AddTicks(8016),
+                            StartDate = new DateTime(2026, 3, 28, 8, 45, 3, 904, DateTimeKind.Local).AddTicks(5233),
+                            Status = true,
                             Type = 1
                         },
                         new
@@ -89,11 +93,12 @@ namespace Agenda.Infrastructure.Migrations
                             Id = 2,
                             CreatorId = 1,
                             Description = "Discusión de arquitectura",
-                            EndDate = new DateTime(2026, 3, 24, 17, 52, 45, 565, DateTimeKind.Local).AddTicks(8037),
+                            EndDate = new DateTime(2026, 3, 28, 13, 45, 3, 904, DateTimeKind.Local).AddTicks(5252),
                             Location = "Zoom",
                             Name = "Reunión técnica",
                             ParticipantIds = "[]",
-                            StartDate = new DateTime(2026, 3, 24, 13, 52, 45, 565, DateTimeKind.Local).AddTicks(8037),
+                            StartDate = new DateTime(2026, 3, 28, 9, 45, 3, 904, DateTimeKind.Local).AddTicks(5251),
+                            Status = true,
                             Type = 0
                         },
                         new
@@ -101,11 +106,12 @@ namespace Agenda.Infrastructure.Migrations
                             Id = 3,
                             CreatorId = 1,
                             Description = "Repechaje mundialista",
-                            EndDate = new DateTime(2026, 3, 25, 16, 52, 45, 565, DateTimeKind.Local).AddTicks(8041),
+                            EndDate = new DateTime(2026, 3, 29, 12, 45, 3, 904, DateTimeKind.Local).AddTicks(5255),
                             Location = "Estadio Hernando Siles",
                             Name = "Partido Bolivia vs Surinam",
                             ParticipantIds = "[]",
-                            StartDate = new DateTime(2026, 3, 25, 14, 52, 45, 565, DateTimeKind.Local).AddTicks(8039),
+                            StartDate = new DateTime(2026, 3, 29, 10, 45, 3, 904, DateTimeKind.Local).AddTicks(5253),
+                            Status = true,
                             Type = 0
                         },
                         new
@@ -113,11 +119,12 @@ namespace Agenda.Infrastructure.Migrations
                             Id = 4,
                             CreatorId = 1,
                             Description = "Presentación del sistema",
-                            EndDate = new DateTime(2026, 3, 26, 15, 52, 45, 565, DateTimeKind.Local).AddTicks(8044),
+                            EndDate = new DateTime(2026, 3, 30, 11, 45, 3, 904, DateTimeKind.Local).AddTicks(5257),
                             Location = "Oficina",
                             Name = "Demo al cliente",
                             ParticipantIds = "[]",
-                            StartDate = new DateTime(2026, 3, 26, 14, 52, 45, 565, DateTimeKind.Local).AddTicks(8043),
+                            StartDate = new DateTime(2026, 3, 30, 10, 45, 3, 904, DateTimeKind.Local).AddTicks(5257),
+                            Status = true,
                             Type = 1
                         },
                         new
@@ -125,11 +132,12 @@ namespace Agenda.Infrastructure.Migrations
                             Id = 5,
                             CreatorId = 1,
                             Description = "Rutina gym",
-                            EndDate = new DateTime(2026, 3, 27, 16, 52, 45, 565, DateTimeKind.Local).AddTicks(8046),
+                            EndDate = new DateTime(2026, 3, 31, 12, 45, 3, 904, DateTimeKind.Local).AddTicks(5260),
                             Location = "Gym",
                             Name = "Entrenamiento personal",
                             ParticipantIds = "[]",
-                            StartDate = new DateTime(2026, 3, 27, 14, 52, 45, 565, DateTimeKind.Local).AddTicks(8046),
+                            StartDate = new DateTime(2026, 3, 31, 10, 45, 3, 904, DateTimeKind.Local).AddTicks(5259),
+                            Status = true,
                             Type = 1
                         },
                         new
@@ -137,11 +145,12 @@ namespace Agenda.Infrastructure.Migrations
                             Id = 6,
                             CreatorId = 1,
                             Description = "Salida social",
-                            EndDate = new DateTime(2026, 3, 28, 17, 52, 45, 565, DateTimeKind.Local).AddTicks(8049),
+                            EndDate = new DateTime(2026, 4, 1, 13, 45, 3, 904, DateTimeKind.Local).AddTicks(5262),
                             Location = "Restaurante",
                             Name = "Cena con amigos",
                             ParticipantIds = "[]",
-                            StartDate = new DateTime(2026, 3, 28, 14, 52, 45, 565, DateTimeKind.Local).AddTicks(8048),
+                            StartDate = new DateTime(2026, 4, 1, 10, 45, 3, 904, DateTimeKind.Local).AddTicks(5262),
+                            Status = true,
                             Type = 0
                         },
                         new
@@ -149,11 +158,12 @@ namespace Agenda.Infrastructure.Migrations
                             Id = 7,
                             CreatorId = 1,
                             Description = "Capacitación frontend",
-                            EndDate = new DateTime(2026, 3, 19, 17, 52, 45, 565, DateTimeKind.Local).AddTicks(8052),
+                            EndDate = new DateTime(2026, 3, 23, 13, 45, 3, 904, DateTimeKind.Local).AddTicks(5265),
                             Location = "Centro TI",
                             Name = "Curso de Angular",
                             ParticipantIds = "[]",
-                            StartDate = new DateTime(2026, 3, 19, 14, 52, 45, 565, DateTimeKind.Local).AddTicks(8051),
+                            StartDate = new DateTime(2026, 3, 23, 10, 45, 3, 904, DateTimeKind.Local).AddTicks(5264),
+                            Status = true,
                             Type = 1
                         },
                         new
@@ -161,11 +171,12 @@ namespace Agenda.Infrastructure.Migrations
                             Id = 8,
                             CreatorId = 1,
                             Description = "Amistoso internacional",
-                            EndDate = new DateTime(2026, 3, 21, 16, 52, 45, 565, DateTimeKind.Local).AddTicks(8054),
+                            EndDate = new DateTime(2026, 3, 25, 12, 45, 3, 904, DateTimeKind.Local).AddTicks(5267),
                             Location = "Estadio",
                             Name = "Partido Bolivia vs Perú",
                             ParticipantIds = "[]",
-                            StartDate = new DateTime(2026, 3, 21, 14, 52, 45, 565, DateTimeKind.Local).AddTicks(8054),
+                            StartDate = new DateTime(2026, 3, 25, 10, 45, 3, 904, DateTimeKind.Local).AddTicks(5266),
+                            Status = true,
                             Type = 0
                         },
                         new
@@ -173,11 +184,12 @@ namespace Agenda.Infrastructure.Migrations
                             Id = 9,
                             CreatorId = 1,
                             Description = "Liberación versión 1.0",
-                            EndDate = new DateTime(2026, 3, 22, 15, 52, 45, 565, DateTimeKind.Local).AddTicks(8057),
+                            EndDate = new DateTime(2026, 3, 26, 11, 45, 3, 904, DateTimeKind.Local).AddTicks(5269),
                             Location = "Servidor",
                             Name = "Deploy producción",
                             ParticipantIds = "[]",
-                            StartDate = new DateTime(2026, 3, 22, 14, 52, 45, 565, DateTimeKind.Local).AddTicks(8056),
+                            StartDate = new DateTime(2026, 3, 26, 10, 45, 3, 904, DateTimeKind.Local).AddTicks(5269),
+                            Status = true,
                             Type = 1
                         },
                         new
@@ -185,11 +197,12 @@ namespace Agenda.Infrastructure.Migrations
                             Id = 10,
                             CreatorId = 2,
                             Description = "Reunión diaria",
-                            EndDate = new DateTime(2026, 3, 24, 15, 52, 45, 565, DateTimeKind.Local).AddTicks(8060),
+                            EndDate = new DateTime(2026, 3, 28, 11, 45, 3, 904, DateTimeKind.Local).AddTicks(5272),
                             Location = "Teams",
                             Name = "Daily Scrum",
                             ParticipantIds = "[]",
-                            StartDate = new DateTime(2026, 3, 24, 13, 52, 45, 565, DateTimeKind.Local).AddTicks(8059),
+                            StartDate = new DateTime(2026, 3, 28, 9, 45, 3, 904, DateTimeKind.Local).AddTicks(5271),
+                            Status = true,
                             Type = 1
                         },
                         new
@@ -197,11 +210,12 @@ namespace Agenda.Infrastructure.Migrations
                             Id = 11,
                             CreatorId = 2,
                             Description = "Resolución de bugs",
-                            EndDate = new DateTime(2026, 3, 24, 16, 52, 45, 565, DateTimeKind.Local).AddTicks(8062),
+                            EndDate = new DateTime(2026, 3, 28, 12, 45, 3, 904, DateTimeKind.Local).AddTicks(5274),
                             Location = "Oficina",
                             Name = "Debug sesión",
                             ParticipantIds = "[]",
-                            StartDate = new DateTime(2026, 3, 24, 12, 52, 45, 565, DateTimeKind.Local).AddTicks(8062),
+                            StartDate = new DateTime(2026, 3, 28, 8, 45, 3, 904, DateTimeKind.Local).AddTicks(5274),
+                            Status = true,
                             Type = 0
                         },
                         new
@@ -209,11 +223,12 @@ namespace Agenda.Infrastructure.Migrations
                             Id = 12,
                             CreatorId = 2,
                             Description = "Organización tareas",
-                            EndDate = new DateTime(2026, 3, 25, 16, 52, 45, 565, DateTimeKind.Local).AddTicks(8065),
+                            EndDate = new DateTime(2026, 3, 29, 12, 45, 3, 904, DateTimeKind.Local).AddTicks(5277),
                             Location = "Zoom",
                             Name = "Planificación sprint",
                             ParticipantIds = "[]",
-                            StartDate = new DateTime(2026, 3, 25, 14, 52, 45, 565, DateTimeKind.Local).AddTicks(8064),
+                            StartDate = new DateTime(2026, 3, 29, 10, 45, 3, 904, DateTimeKind.Local).AddTicks(5276),
+                            Status = true,
                             Type = 1
                         },
                         new
@@ -221,11 +236,12 @@ namespace Agenda.Infrastructure.Migrations
                             Id = 13,
                             CreatorId = 2,
                             Description = "Partido entre amigos",
-                            EndDate = new DateTime(2026, 3, 26, 16, 52, 45, 565, DateTimeKind.Local).AddTicks(8068),
+                            EndDate = new DateTime(2026, 3, 30, 12, 45, 3, 904, DateTimeKind.Local).AddTicks(5279),
                             Location = "Cancha",
                             Name = "Partido fútbol",
                             ParticipantIds = "[]",
-                            StartDate = new DateTime(2026, 3, 26, 14, 52, 45, 565, DateTimeKind.Local).AddTicks(8067),
+                            StartDate = new DateTime(2026, 3, 30, 10, 45, 3, 904, DateTimeKind.Local).AddTicks(5278),
+                            Status = true,
                             Type = 0
                         },
                         new
@@ -233,11 +249,12 @@ namespace Agenda.Infrastructure.Migrations
                             Id = 14,
                             CreatorId = 2,
                             Description = "Reunión familiar",
-                            EndDate = new DateTime(2026, 3, 27, 17, 52, 45, 565, DateTimeKind.Local).AddTicks(8070),
+                            EndDate = new DateTime(2026, 3, 31, 13, 45, 3, 904, DateTimeKind.Local).AddTicks(5281),
                             Location = "Casa",
                             Name = "Cena familiar",
                             ParticipantIds = "[]",
-                            StartDate = new DateTime(2026, 3, 27, 14, 52, 45, 565, DateTimeKind.Local).AddTicks(8070),
+                            StartDate = new DateTime(2026, 3, 31, 10, 45, 3, 904, DateTimeKind.Local).AddTicks(5281),
+                            Status = true,
                             Type = 1
                         },
                         new
@@ -245,11 +262,12 @@ namespace Agenda.Infrastructure.Migrations
                             Id = 15,
                             CreatorId = 2,
                             Description = "Code review",
-                            EndDate = new DateTime(2026, 3, 28, 15, 52, 45, 565, DateTimeKind.Local).AddTicks(8073),
+                            EndDate = new DateTime(2026, 4, 1, 11, 45, 3, 904, DateTimeKind.Local).AddTicks(5284),
                             Location = "GitHub",
                             Name = "Revisión código",
                             ParticipantIds = "[]",
-                            StartDate = new DateTime(2026, 3, 28, 14, 52, 45, 565, DateTimeKind.Local).AddTicks(8072),
+                            StartDate = new DateTime(2026, 4, 1, 10, 45, 3, 904, DateTimeKind.Local).AddTicks(5283),
+                            Status = true,
                             Type = 0
                         },
                         new
@@ -257,11 +275,12 @@ namespace Agenda.Infrastructure.Migrations
                             Id = 16,
                             CreatorId = 2,
                             Description = "Corrección urgente",
-                            EndDate = new DateTime(2026, 3, 20, 15, 52, 45, 565, DateTimeKind.Local).AddTicks(8076),
+                            EndDate = new DateTime(2026, 3, 24, 11, 45, 3, 904, DateTimeKind.Local).AddTicks(5286),
                             Location = "Servidor",
                             Name = "Deploy hotfix",
                             ParticipantIds = "[]",
-                            StartDate = new DateTime(2026, 3, 20, 14, 52, 45, 565, DateTimeKind.Local).AddTicks(8075),
+                            StartDate = new DateTime(2026, 3, 24, 10, 45, 3, 904, DateTimeKind.Local).AddTicks(5286),
+                            Status = true,
                             Type = 1
                         },
                         new
@@ -269,11 +288,12 @@ namespace Agenda.Infrastructure.Migrations
                             Id = 17,
                             CreatorId = 2,
                             Description = "Feedback sistema",
-                            EndDate = new DateTime(2026, 3, 21, 16, 52, 45, 565, DateTimeKind.Local).AddTicks(8078),
+                            EndDate = new DateTime(2026, 3, 25, 12, 45, 3, 904, DateTimeKind.Local).AddTicks(5289),
                             Location = "Oficina",
                             Name = "Reunión cliente",
                             ParticipantIds = "[]",
-                            StartDate = new DateTime(2026, 3, 21, 14, 52, 45, 565, DateTimeKind.Local).AddTicks(8078),
+                            StartDate = new DateTime(2026, 3, 25, 10, 45, 3, 904, DateTimeKind.Local).AddTicks(5288),
+                            Status = true,
                             Type = 0
                         },
                         new
@@ -281,11 +301,12 @@ namespace Agenda.Infrastructure.Migrations
                             Id = 18,
                             CreatorId = 2,
                             Description = "Pruebas del sistema",
-                            EndDate = new DateTime(2026, 3, 22, 16, 52, 45, 565, DateTimeKind.Local).AddTicks(8081),
+                            EndDate = new DateTime(2026, 3, 26, 12, 45, 3, 904, DateTimeKind.Local).AddTicks(5291),
                             Location = "QA Lab",
                             Name = "Testing QA",
                             ParticipantIds = "[]",
-                            StartDate = new DateTime(2026, 3, 22, 14, 52, 45, 565, DateTimeKind.Local).AddTicks(8080),
+                            StartDate = new DateTime(2026, 3, 26, 10, 45, 3, 904, DateTimeKind.Local).AddTicks(5290),
+                            Status = true,
                             Type = 1
                         });
                 });

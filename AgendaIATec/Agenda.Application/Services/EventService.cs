@@ -60,6 +60,7 @@ public class EventService : IEventService
         existingEvent.EndDate = updatedEvent.EndDate;
         existingEvent.Location = updatedEvent.Location;
         existingEvent.Type = updatedEvent.Type;
+        existingEvent.Status = updatedEvent.Status;
 
         await _eventRepository.UpdateAsync(existingEvent);
 
@@ -87,5 +88,18 @@ public class EventService : IEventService
         var oldEvents = await _eventRepository.GetOldEventsAsync(userId, now, date, filter);
 
         return new { currentEvents, upcomingEvents, oldEvents };
+    }
+
+    public async Task<(bool success, string message)> changeEventStatus(int idEvent, int userId)
+    {
+        var existEvent = await this._eventRepository.GetByIdAndCreatorAsync(idEvent, userId);
+
+        if(existEvent == null) return (false, "El evento no fue encontrado");
+
+        existEvent.Status = !existEvent.Status;
+
+        await this._eventRepository.UpdateAsync(existEvent);        
+
+        return (false, "Se actualizo el estado del evento.");
     }
 }

@@ -90,5 +90,16 @@ public class EventsController : ControllerBase
         if (!success) return BadRequest("Error al procesar la invitación.");
         return Ok(new { message = accept ? "Evento aceptado" : "Invitación rechazada" });
     }
+
+    [HttpPost("{id}/toggle_status")]
+    public async Task<IActionResult> changeStatus(int idEvent)
+    {
+        var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value!);
+        var isChangeStatus = await _eventService.changeEventStatus(idEvent, userId);
+
+        if(!isChangeStatus.success) return BadRequest(isChangeStatus.message); 
+
+        return Ok(new {message = isChangeStatus.message});
+    }
 }
 

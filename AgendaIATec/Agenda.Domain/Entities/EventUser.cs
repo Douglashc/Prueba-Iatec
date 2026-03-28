@@ -8,6 +8,7 @@ public class EventUser
     public DateTime EndDate { get; set; }
     public string Location { get; set; } = string.Empty;
     public int Type { get; set; }
+    public bool Status { get; set; }
     public int CreatorId { get; set; }
     public List<string> Participants { get; set; } = new();
 }

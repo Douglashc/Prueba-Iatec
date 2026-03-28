@@ -11,6 +11,7 @@ public class Event
     public DateTime EndDate { get; set; }
     public string Location { get; set; } = string.Empty;
     public EventType Type { get; set; }
+    public bool Status { get; set; } = true;
     public int CreatorId { get; set; }
     public List<int> ParticipantIds { get; set; } = new();
 

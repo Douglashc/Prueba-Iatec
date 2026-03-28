@@ -53,6 +53,7 @@ namespace Agenda.Infrastructure.Migrations
                     Location = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Type = table.Column<int>(type: "int", nullable: false),
+                    Status = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     CreatorId = table.Column<int>(type: "int", nullable: false),
                     ParticipantIds = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
@@ -99,27 +100,27 @@ namespace Agenda.Infrastructure.Migrations
 
             migrationBuilder.InsertData(
                 table: "Events",
-                columns: new[] { "Id", "CreatorId", "Description", "EndDate", "Location", "Name", "ParticipantIds", "StartDate", "Type", "UserId" },
+                columns: new[] { "Id", "CreatorId", "Description", "EndDate", "Location", "Name", "ParticipantIds", "StartDate", "Status", "Type", "UserId" },
                 values: new object[,]
                 {
-                    { 1, 1, "Revisión del sprint actual", new DateTime(2026, 3, 24, 16, 52, 45, 565, DateTimeKind.Local).AddTicks(8034), "Oficina", "Sprint Review", "[]", new DateTime(2026, 3, 24, 12, 52, 45, 565, DateTimeKind.Local).AddTicks(8016), 1, null },
-                    { 2, 1, "Discusión de arquitectura", new DateTime(2026, 3, 24, 17, 52, 45, 565, DateTimeKind.Local).AddTicks(8037), "Zoom", "Reunión técnica", "[]", new DateTime(2026, 3, 24, 13, 52, 45, 565, DateTimeKind.Local).AddTicks(8037), 0, null },
-                    { 3, 1, "Repechaje mundialista", new DateTime(2026, 3, 25, 16, 52, 45, 565, DateTimeKind.Local).AddTicks(8041), "Estadio Hernando Siles", "Partido Bolivia vs Surinam", "[]", new DateTime(2026, 3, 25, 14, 52, 45, 565, DateTimeKind.Local).AddTicks(8039), 0, null },
-                    { 4, 1, "Presentación del sistema", new DateTime(2026, 3, 26, 15, 52, 45, 565, DateTimeKind.Local).AddTicks(8044), "Oficina", "Demo al cliente", "[]", new DateTime(2026, 3, 26, 14, 52, 45, 565, DateTimeKind.Local).AddTicks(8043), 1, null },
-                    { 5, 1, "Rutina gym", new DateTime(2026, 3, 27, 16, 52, 45, 565, DateTimeKind.Local).AddTicks(8046), "Gym", "Entrenamiento personal", "[]", new DateTime(2026, 3, 27, 14, 52, 45, 565, DateTimeKind.Local).AddTicks(8046), 1, null },
-                    { 6, 1, "Salida social", new DateTime(2026, 3, 28, 17, 52, 45, 565, DateTimeKind.Local).AddTicks(8049), "Restaurante", "Cena con amigos", "[]", new DateTime(2026, 3, 28, 14, 52, 45, 565, DateTimeKind.Local).AddTicks(8048), 0, null },
-                    { 7, 1, "Capacitación frontend", new DateTime(2026, 3, 19, 17, 52, 45, 565, DateTimeKind.Local).AddTicks(8052), "Centro TI", "Curso de Angular", "[]", new DateTime(2026, 3, 19, 14, 52, 45, 565, DateTimeKind.Local).AddTicks(8051), 1, null },
-                    { 8, 1, "Amistoso internacional", new DateTime(2026, 3, 21, 16, 52, 45, 565, DateTimeKind.Local).AddTicks(8054), "Estadio", "Partido Bolivia vs Perú", "[]", new DateTime(2026, 3, 21, 14, 52, 45, 565, DateTimeKind.Local).AddTicks(8054), 0, null },
-                    { 9, 1, "Liberación versión 1.0", new DateTime(2026, 3, 22, 15, 52, 45, 565, DateTimeKind.Local).AddTicks(8057), "Servidor", "Deploy producción", "[]", new DateTime(2026, 3, 22, 14, 52, 45, 565, DateTimeKind.Local).AddTicks(8056), 1, null },
-                    { 10, 2, "Reunión diaria", new DateTime(2026, 3, 24, 15, 52, 45, 565, DateTimeKind.Local).AddTicks(8060), "Teams", "Daily Scrum", "[]", new DateTime(2026, 3, 24, 13, 52, 45, 565, DateTimeKind.Local).AddTicks(8059), 1, null },
-                    { 11, 2, "Resolución de bugs", new DateTime(2026, 3, 24, 16, 52, 45, 565, DateTimeKind.Local).AddTicks(8062), "Oficina", "Debug sesión", "[]", new DateTime(2026, 3, 24, 12, 52, 45, 565, DateTimeKind.Local).AddTicks(8062), 0, null },
-                    { 12, 2, "Organización tareas", new DateTime(2026, 3, 25, 16, 52, 45, 565, DateTimeKind.Local).AddTicks(8065), "Zoom", "Planificación sprint", "[]", new DateTime(2026, 3, 25, 14, 52, 45, 565, DateTimeKind.Local).AddTicks(8064), 1, null },
-                    { 13, 2, "Partido entre amigos", new DateTime(2026, 3, 26, 16, 52, 45, 565, DateTimeKind.Local).AddTicks(8068), "Cancha", "Partido fútbol", "[]", new DateTime(2026, 3, 26, 14, 52, 45, 565, DateTimeKind.Local).AddTicks(8067), 0, null },
-                    { 14, 2, "Reunión familiar", new DateTime(2026, 3, 27, 17, 52, 45, 565, DateTimeKind.Local).AddTicks(8070), "Casa", "Cena familiar", "[]", new DateTime(2026, 3, 27, 14, 52, 45, 565, DateTimeKind.Local).AddTicks(8070), 1, null },
-                    { 15, 2, "Code review", new DateTime(2026, 3, 28, 15, 52, 45, 565, DateTimeKind.Local).AddTicks(8073), "GitHub", "Revisión código", "[]", new DateTime(2026, 3, 28, 14, 52, 45, 565, DateTimeKind.Local).AddTicks(8072), 0, null },
-                    { 16, 2, "Corrección urgente", new DateTime(2026, 3, 20, 15, 52, 45, 565, DateTimeKind.Local).AddTicks(8076), "Servidor", "Deploy hotfix", "[]", new DateTime(2026, 3, 20, 14, 52, 45, 565, DateTimeKind.Local).AddTicks(8075), 1, null },
-                    { 17, 2, "Feedback sistema", new DateTime(2026, 3, 21, 16, 52, 45, 565, DateTimeKind.Local).AddTicks(8078), "Oficina", "Reunión cliente", "[]", new DateTime(2026, 3, 21, 14, 52, 45, 565, DateTimeKind.Local).AddTicks(8078), 0, null },
-                    { 18, 2, "Pruebas del sistema", new DateTime(2026, 3, 22, 16, 52, 45, 565, DateTimeKind.Local).AddTicks(8081), "QA Lab", "Testing QA", "[]", new DateTime(2026, 3, 22, 14, 52, 45, 565, DateTimeKind.Local).AddTicks(8080), 1, null }
+                    { 1, 1, "Revisión del sprint actual", new DateTime(2026, 3, 28, 12, 45, 3, 904, DateTimeKind.Local).AddTicks(5249), "Oficina", "Sprint Review", "[]", new DateTime(2026, 3, 28, 8, 45, 3, 904, DateTimeKind.Local).AddTicks(5233), true, 1, null },
+                    { 2, 1, "Discusión de arquitectura", new DateTime(2026, 3, 28, 13, 45, 3, 904, DateTimeKind.Local).AddTicks(5252), "Zoom", "Reunión técnica", "[]", new DateTime(2026, 3, 28, 9, 45, 3, 904, DateTimeKind.Local).AddTicks(5251), true, 0, null },
+                    { 3, 1, "Repechaje mundialista", new DateTime(2026, 3, 29, 12, 45, 3, 904, DateTimeKind.Local).AddTicks(5255), "Estadio Hernando Siles", "Partido Bolivia vs Surinam", "[]", new DateTime(2026, 3, 29, 10, 45, 3, 904, DateTimeKind.Local).AddTicks(5253), true, 0, null },
+                    { 4, 1, "Presentación del sistema", new DateTime(2026, 3, 30, 11, 45, 3, 904, DateTimeKind.Local).AddTicks(5257), "Oficina", "Demo al cliente", "[]", new DateTime(2026, 3, 30, 10, 45, 3, 904, DateTimeKind.Local).AddTicks(5257), true, 1, null },
+                    { 5, 1, "Rutina gym", new DateTime(2026, 3, 31, 12, 45, 3, 904, DateTimeKind.Local).AddTicks(5260), "Gym", "Entrenamiento personal", "[]", new DateTime(2026, 3, 31, 10, 45, 3, 904, DateTimeKind.Local).AddTicks(5259), true, 1, null },
+                    { 6, 1, "Salida social", new DateTime(2026, 4, 1, 13, 45, 3, 904, DateTimeKind.Local).AddTicks(5262), "Restaurante", "Cena con amigos", "[]", new DateTime(2026, 4, 1, 10, 45, 3, 904, DateTimeKind.Local).AddTicks(5262), true, 0, null },
+                    { 7, 1, "Capacitación frontend", new DateTime(2026, 3, 23, 13, 45, 3, 904, DateTimeKind.Local).AddTicks(5265), "Centro TI", "Curso de Angular", "[]", new DateTime(2026, 3, 23, 10, 45, 3, 904, DateTimeKind.Local).AddTicks(5264), true, 1, null },
+                    { 8, 1, "Amistoso internacional", new DateTime(2026, 3, 25, 12, 45, 3, 904, DateTimeKind.Local).AddTicks(5267), "Estadio", "Partido Bolivia vs Perú", "[]", new DateTime(2026, 3, 25, 10, 45, 3, 904, DateTimeKind.Local).AddTicks(5266), true, 0, null },
+                    { 9, 1, "Liberación versión 1.0", new DateTime(2026, 3, 26, 11, 45, 3, 904, DateTimeKind.Local).AddTicks(5269), "Servidor", "Deploy producción", "[]", new DateTime(2026, 3, 26, 10, 45, 3, 904, DateTimeKind.Local).AddTicks(5269), true, 1, null },
+                    { 10, 2, "Reunión diaria", new DateTime(2026, 3, 28, 11, 45, 3, 904, DateTimeKind.Local).AddTicks(5272), "Teams", "Daily Scrum", "[]", new DateTime(2026, 3, 28, 9, 45, 3, 904, DateTimeKind.Local).AddTicks(5271), true, 1, null },
+                    { 11, 2, "Resolución de bugs", new DateTime(2026, 3, 28, 12, 45, 3, 904, DateTimeKind.Local).AddTicks(5274), "Oficina", "Debug sesión", "[]", new DateTime(2026, 3, 28, 8, 45, 3, 904, DateTimeKind.Local).AddTicks(5274), true, 0, null },
+                    { 12, 2, "Organización tareas", new DateTime(2026, 3, 29, 12, 45, 3, 904, DateTimeKind.Local).AddTicks(5277), "Zoom", "Planificación sprint", "[]", new DateTime(2026, 3, 29, 10, 45, 3, 904, DateTimeKind.Local).AddTicks(5276), true, 1, null },
+                    { 13, 2, "Partido entre amigos", new DateTime(2026, 3, 30, 12, 45, 3, 904, DateTimeKind.Local).AddTicks(5279), "Cancha", "Partido fútbol", "[]", new DateTime(2026, 3, 30, 10, 45, 3, 904, DateTimeKind.Local).AddTicks(5278), true, 0, null },
+                    { 14, 2, "Reunión familiar", new DateTime(2026, 3, 31, 13, 45, 3, 904, DateTimeKind.Local).AddTicks(5281), "Casa", "Cena familiar", "[]", new DateTime(2026, 3, 31, 10, 45, 3, 904, DateTimeKind.Local).AddTicks(5281), true, 1, null },
+                    { 15, 2, "Code review", new DateTime(2026, 4, 1, 11, 45, 3, 904, DateTimeKind.Local).AddTicks(5284), "GitHub", "Revisión código", "[]", new DateTime(2026, 4, 1, 10, 45, 3, 904, DateTimeKind.Local).AddTicks(5283), true, 0, null },
+                    { 16, 2, "Corrección urgente", new DateTime(2026, 3, 24, 11, 45, 3, 904, DateTimeKind.Local).AddTicks(5286), "Servidor", "Deploy hotfix", "[]", new DateTime(2026, 3, 24, 10, 45, 3, 904, DateTimeKind.Local).AddTicks(5286), true, 1, null },
+                    { 17, 2, "Feedback sistema", new DateTime(2026, 3, 25, 12, 45, 3, 904, DateTimeKind.Local).AddTicks(5289), "Oficina", "Reunión cliente", "[]", new DateTime(2026, 3, 25, 10, 45, 3, 904, DateTimeKind.Local).AddTicks(5288), true, 0, null },
+                    { 18, 2, "Pruebas del sistema", new DateTime(2026, 3, 26, 12, 45, 3, 904, DateTimeKind.Local).AddTicks(5291), "QA Lab", "Testing QA", "[]", new DateTime(2026, 3, 26, 10, 45, 3, 904, DateTimeKind.Local).AddTicks(5290), true, 1, null }
                 });
 
             migrationBuilder.InsertData(

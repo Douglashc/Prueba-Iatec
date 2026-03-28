@@ -109,6 +109,7 @@ public class EventRepository : IEventRepository
             EndDate = e.EndDate,
             Location = e.Location,
             Type = (int)e.Type,
+            Status = e.Status,
             Participants = _context.Invitations
                 .Where(i => i.EventId == e.Id && i.Status == InvitationStatus.Accepted)
                 .Select(i => i.Receiver.Username)
